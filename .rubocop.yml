@@ -1,0 +1,44 @@
+AllCops:
+  Include:
+    - Rakefile
+    - config.ru
+  Exclude:
+    - db/**/*
+    - script/**
+    - Gemfile
+    - Rakefile
+
+Documentation:
+  Enabled: false
+
+Style/EmptyMethod:
+  EnforcedStyle: expanded
+  SupportedStyles:
+    - compact
+    - expanded
+
+Layout/AlignHash:
+  Enabled: false
+
+Layout/AlignParameters:
+  EnforcedStyle: with_fixed_indentation
+
+Layout/MultilineMethodCallIndentation:
+  EnforcedStyle: indented
+
+Metrics/BlockLength:
+  Exclude:
+    - spec/**/*
+    - system/boot/*
+    - apps/**/web/routes/*
+
+Metrics/LineLength:
+  Exclude:
+    - spec/**/*
+
+Metrics/ModuleLength:
+  Exclude:
+    - spec/**/*
+
+Style/LambdaCall:
+  Enabled: false

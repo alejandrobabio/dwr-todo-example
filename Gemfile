@@ -29,6 +29,7 @@ gem "slim"
 
 group :development, :test do
   gem "pry-byebug", platform: :mri
+  gem "rubocop", require: false
 end
 
 group :test do
