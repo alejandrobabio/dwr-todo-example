@@ -1,0 +1,16 @@
+h1 Log In
+
+div
+  -if error
+    = error
+br
+
+form action='/login' method='post'
+  == csrf_tag
+  label
+    | Email
+    input name='user[email]' type='text'
+  label
+    | Password
+    input name='user[password]' type='password'
+  input type='submit' value='Log in'
