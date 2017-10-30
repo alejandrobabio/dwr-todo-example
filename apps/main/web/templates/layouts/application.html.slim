@@ -1,5 +1,15 @@
 html
   body
+    - if current_user
+      == "Logged as #{current_user.email}"
+      | &nbsp;
+      a href='/logout'
+        | Logout
+    - else
+      a href='/login'
+        | Login
+    br
     == flash[:notice]
     == flash[:alert]
+    br
     == yield
