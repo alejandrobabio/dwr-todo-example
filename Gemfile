@@ -26,6 +26,7 @@ gem "dry-types", "~> 0.12"
 gem "dry-validation", "~> 0.11"
 gem "dry-view", "~> 0.3"
 gem "slim"
+gem "bcrypt"
 
 group :development, :test do
   gem "pry-byebug", platform: :mri

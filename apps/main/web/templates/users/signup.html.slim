@@ -1,0 +1,19 @@
+h1 Sign Up
+
+div
+  - if validation
+    - validation.messages.each do |key, all_messages|
+      b = key.capitalize
+      = ": #{all_messages.join(', ')}"
+      | &nbsp;
+br
+
+form action='/signup' method='post'
+  == csrf_tag
+  label
+    | Email
+    input name='user[email]' type='text' value=new_user.email
+  label
+    | Password
+    input name='user[password]' type='password'
+  input type='submit' value='Sign Up'
