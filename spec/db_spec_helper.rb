@@ -1,11 +1,13 @@
-require_relative "spec_helper"
+# frozen_string_literal: true
+
+require_relative 'spec_helper'
 
 Todo::Container.start :persistence
 
-Dir[SPEC_ROOT.join("support/db/*.rb").to_s].each(&method(:require))
-Dir[SPEC_ROOT.join("shared/db/*.rb").to_s].each(&method(:require))
+Dir[SPEC_ROOT.join('support/db/*.rb').to_s].each(&method(:require))
+Dir[SPEC_ROOT.join('shared/db/*.rb').to_s].each(&method(:require))
 
-require "database_cleaner"
+require 'database_cleaner'
 DatabaseCleaner[:sequel, connection: Test::DatabaseHelpers.db].strategy = :truncation
 
 RSpec.configure do |config|

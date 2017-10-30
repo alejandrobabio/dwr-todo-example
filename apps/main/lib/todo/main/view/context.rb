@@ -1,4 +1,6 @@
-require "todo/view/context"
+# frozen_string_literal: true
+
+require 'todo/view/context'
 
 module Todo
   module Main

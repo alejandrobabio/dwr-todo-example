@@ -1,3 +1,4 @@
+# frozen_string_literal: true
 # Define your factories here, e.g.
 #
 # Factory.define :article do |f|

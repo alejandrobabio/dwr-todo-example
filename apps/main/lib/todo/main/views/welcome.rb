@@ -1,11 +1,13 @@
-require "todo/main/view/controller"
+# frozen_string_literal: true
+
+require 'todo/main/view/controller'
 
 module Todo
   module Main
     module Views
       class Welcome < View::Controller
         configure do |config|
-          config.template = "welcome"
+          config.template = 'welcome'
         end
       end
     end

@@ -1,28 +1,30 @@
-require_relative "db_spec_helper"
+# frozen_string_literal: true
 
-require "rack/test"
-require "capybara/rspec"
-require "capybara-screenshot/rspec"
-require "capybara/poltergeist"
+require_relative 'db_spec_helper'
 
-Dir[SPEC_ROOT.join("support/web/*.rb").to_s].each(&method(:require))
-Dir[SPEC_ROOT.join("shared/web/*.rb").to_s].each(&method(:require))
+require 'rack/test'
+require 'capybara/rspec'
+require 'capybara-screenshot/rspec'
+require 'capybara/poltergeist'
 
-require SPEC_ROOT.join("../system/boot").realpath
+Dir[SPEC_ROOT.join('support/web/*.rb').to_s].each(&method(:require))
+Dir[SPEC_ROOT.join('shared/web/*.rb').to_s].each(&method(:require))
+
+require SPEC_ROOT.join('../system/boot').realpath
 
 Capybara.app = Test::WebHelpers.app
 Capybara.server_port = 3001
 Capybara.save_path = "#{File.dirname(__FILE__)}/../tmp/capybara-screenshot"
 Capybara.javascript_driver = :poltergeist
-Capybara::Screenshot.prune_strategy = {keep: 10}
+Capybara::Screenshot.prune_strategy = { keep: 10 }
 
 Capybara.register_driver :poltergeist do |app|
   Capybara::Poltergeist::Driver.new(
     app,
     js_errors: false,
-    phantomjs_logger: File.open(SPEC_ROOT.join("../log/phantomjs.log"), "w"),
-    phantomjs_options: %w(--load-images=no),
-    window_size: [1600, 768],
+    phantomjs_logger: File.open(SPEC_ROOT.join('../log/phantomjs.log'), 'w'),
+    phantomjs_options: %w[--load-images=no],
+    window_size: [1600, 768]
   )
 end
 

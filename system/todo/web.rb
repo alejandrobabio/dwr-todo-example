@@ -1,5 +1,7 @@
-require "dry/web/roda/application"
-require_relative "container"
+# frozen_string_literal: true
+
+require 'dry/web/roda/application'
+require_relative 'container'
 
 module Todo
   class Web < Dry::Web::Roda::Application

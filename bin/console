@@ -1,7 +1,8 @@
 #!/usr/bin/env ruby
+# frozen_string_literal: true
 
-require "bundler/setup"
-require "dry/web/console"
-require_relative "../system/boot"
+require 'bundler/setup'
+require 'dry/web/console'
+require_relative '../system/boot'
 
 Dry::Web::Console.start

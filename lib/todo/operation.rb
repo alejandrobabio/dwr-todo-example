@@ -1,6 +1,8 @@
+# frozen_string_literal: true
+
 # auto_register: false
 
-require "dry/transaction/operation"
+require 'dry/transaction/operation'
 
 module Todo
   class Operation

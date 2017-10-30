@@ -1,13 +1,15 @@
-ENV["RACK_ENV"] = "test"
+# frozen_string_literal: true
 
-require "pry-byebug"
+ENV['RACK_ENV'] = 'test'
+
+require 'pry-byebug'
 
 SPEC_ROOT = Pathname(__FILE__).dirname
 
-Dir[SPEC_ROOT.join("support/*.rb").to_s].each(&method(:require))
-Dir[SPEC_ROOT.join("shared/*.rb").to_s].each(&method(:require))
+Dir[SPEC_ROOT.join('support/*.rb').to_s].each(&method(:require))
+Dir[SPEC_ROOT.join('shared/*.rb').to_s].each(&method(:require))
 
-require SPEC_ROOT.join("../system/todo/container")
+require SPEC_ROOT.join('../system/todo/container')
 
 RSpec.configure do |config|
   config.disable_monkey_patching!
@@ -32,7 +34,7 @@ RSpec.configure do |config|
 
   # Allows RSpec to persist some state between runs in order to support the
   # `--only-failures` and `--next-failure` CLI options.
-  config.example_status_persistence_file_path = "spec/examples.txt"
+  config.example_status_persistence_file_path = 'spec/examples.txt'
 
   # Many RSpec users commonly either run the entire suite or an individual
   # file, and it's useful to allow more verbose output when running an
@@ -40,7 +42,7 @@ RSpec.configure do |config|
   if config.files_to_run.one?
     # Use the documentation formatter for detailed output, unless a formatter
     # has already been configured (e.g. via a command-line flag).
-    config.default_formatter = "doc"
+    config.default_formatter = 'doc'
   end
 
   # Print the 10 slowest examples and example groups at the end of the spec

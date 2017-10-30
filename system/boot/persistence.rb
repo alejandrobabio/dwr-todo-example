@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 Todo::Container.boot :persistence, namespace: true do |system|
   init do
-    require "sequel"
-    require "rom"
-    require "rom/sql"
+    require 'sequel'
+    require 'rom'
+    require 'rom/sql'
 
     use :monitor, :settings
 
@@ -14,7 +16,7 @@ Todo::Container.boot :persistence, namespace: true do |system|
     rom_config = ROM::Configuration.new(
       :sql,
       system[:settings].database_url,
-      extensions: %i[error_sql pg_array pg_json],
+      extensions: %i[error_sql pg_array pg_json]
     )
 
     rom_config.plugin :sql, relations: :instrumentation do |plugin_config|
@@ -23,14 +25,14 @@ Todo::Container.boot :persistence, namespace: true do |system|
 
     rom_config.plugin :sql, relations: :auto_restrictions
 
-    register "config", rom_config
-    register "db", rom_config.gateways[:default].connection
+    register 'config', rom_config
+    register 'db', rom_config.gateways[:default].connection
   end
 
   start do
-    config = container["persistence.config"]
-    config.auto_registration system.root.join("lib/persistence")
+    config = container['persistence.config']
+    config.auto_registration system.root.join('lib/persistence')
 
-    register "rom", ROM.container(config)
+    register 'rom', ROM.container(config)
   end
 end
