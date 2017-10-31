@@ -10,10 +10,12 @@ br
 
 form action='/signup' method='post'
   == csrf_tag
-  label
-    | Email
-    input name='user[email]' type='text' value=new_user.email
-  label
-    | Password
-    input name='user[password]' type='password'
-  input type='submit' value='Sign Up'
+  .form-group
+    label for='user_email'
+      | Email
+    input.form-control id='user_email' name='user[email]' type='text' value=new_user.email
+  .form-group
+    label for='user_password'
+      | Password
+    input.form-control id='user_password' name='user[password]' type='password'
+  input.btn.btn-default type='submit' value='Sign Up'

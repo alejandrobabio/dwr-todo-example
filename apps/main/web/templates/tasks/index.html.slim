@@ -9,19 +9,20 @@ br
 
 form action='/tasks' method='post'
   == csrf_tag
-  input name='task[description]' placeholder='Add a new task' value=new_task.description
+  input.form-control name='task[description]' placeholder='Add a new task' value=new_task.description
 
 br
 
-ul.tasks
+ul.list-group.tasks
   - tasks.each do |task|
-    li.task
+    - contextual_type = task.completed ? 'info' : 'warning'
+    li.list-group-item.task class="list-group-item-#{contextual_type}"
       span = task.description
-      | &nbsp;
       - if task.completed
-          | [Completed]
+        .pull-right
+          | Completed
       - else
-        form action="/tasks/#{task.id}" method='post'
+        form.pull-right action="/tasks/#{task.id}" method='post'
           == csrf_tag
           input type='hidden' name='_method' value='patch'
-          input type='submit' value='Complete'
+          input.btn.btn-default.btn-xs type='submit' value='Complete'

@@ -20,7 +20,7 @@ RSpec.feature 'Create Task' do
     fill_in 'Add a new task', with: 'My'
     page.submit find('form')
 
-    expect(find('ul')).not_to have_content('My')
+    expect(find('.action ul')).not_to have_content('My')
     expect(find('input').value).to eq 'My'
     expect(page).to have_content('Description: size cannot be less than 3')
   end
