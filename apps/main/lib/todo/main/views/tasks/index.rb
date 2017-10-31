@@ -19,6 +19,13 @@ module Todo
           expose :tasks do |current_user|
             tasks_scope.(current_user).to_a
           end
+
+          expose :validation
+
+          expose :new_task do |validation|
+            description = validation.to_h[:description]
+            Struct.new(:description).new(description)
+          end
         end
       end
     end

@@ -1,7 +1,19 @@
 h1 Tasks
 
+div
+  -if validation
+    - validation.messages.each do |key, all_messages|
+      b = key.capitalize
+      = ": #{all_messages.join(', ')}"
+br
+
+form action='/tasks' method='post'
+  == csrf_tag
+  input name='task[description]' placeholder='Add a new task' value=new_task.description
+
+br
+
 ul.tasks
   - tasks.each do |task|
     li.task
       span = task.description
-

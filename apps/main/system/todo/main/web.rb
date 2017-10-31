@@ -2,10 +2,13 @@
 
 require 'dry/web/roda/application'
 require_relative 'container'
+require 'memoizable'
 
 module Todo
   module Main
     class Web < Dry::Web::Roda::Application
+      include Memoizable
+
       setting :public_routes
       configure do |config|
         config.container = Container
@@ -40,8 +43,17 @@ module Todo
 
       def current_user
         return unless session[:user_id]
-        @current_user ||= self.class['core.repositories.users_repo']
+        self.class['core.repositories.users_repo']
           .users.by_pk(session[:user_id]).one
+      end
+      memoize :current_user
+
+      def params_with_user(params)
+        { params: params, current_user: current_user }
+      end
+
+      def hash_with_user(hash = {})
+        hash.merge(current_user: current_user)
       end
 
       # Request-specific options for dry-view context object
