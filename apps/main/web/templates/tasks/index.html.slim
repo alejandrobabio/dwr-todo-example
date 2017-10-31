@@ -17,3 +17,11 @@ ul.tasks
   - tasks.each do |task|
     li.task
       span = task.description
+      | &nbsp;
+      - if task.completed
+          | [Completed]
+      - else
+        form action="/tasks/#{task.id}" method='post'
+          == csrf_tag
+          input type='hidden' name='_method' value='patch'
+          input type='submit' value='Complete'

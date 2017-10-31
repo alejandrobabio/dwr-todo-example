@@ -23,6 +23,23 @@ module Todo
             end
           end
         end
+
+        r.is :id do |id|
+          r.patch do
+            r.resolve 'transactions.complete_task' do |complete_task|
+              complete_task.(params_with_user(id: id)) do |m|
+                m.success do |_task|
+                  flash[:notice] = "task id: #{id}, completed"
+                  r.redirect '/tasks'
+                end
+                m.failure do
+                  flash[:alert] = 'Unexpected error'
+                  r.view 'tasks.index', **hash_with_user
+                end
+              end
+            end
+          end
+        end
       end
     end
   end
