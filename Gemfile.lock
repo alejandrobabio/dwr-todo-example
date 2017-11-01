@@ -79,7 +79,7 @@ GEM
       dry-equalizer (~> 0.2)
       dry-logic (~> 0.4, >= 0.4.0)
       dry-types (~> 0.12.0)
-    dry-view (0.3.0)
+    dry-view (0.4.0)
       dry-configurable (~> 0.1)
       dry-core (~> 0.2)
       dry-equalizer (~> 0.2)
@@ -87,7 +87,7 @@ GEM
     dry-web (0.7.1)
       dry-monitor
       dry-system (~> 0.5)
-    dry-web-roda (0.9.0)
+    dry-web-roda (0.9.1)
       dry-configurable (~> 0.2)
       inflecto (~> 0.0)
       roda (~> 2.14)
@@ -228,7 +228,7 @@ DEPENDENCIES
   dry-transaction (~> 0.10)
   dry-types (~> 0.12)
   dry-validation (~> 0.11)
-  dry-view (~> 0.3)
+  dry-view (~> 0.4)
   dry-web (~> 0.7)
   dry-web-roda (~> 0.7)
   memoizable

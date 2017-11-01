@@ -16,9 +16,8 @@ module Todo
 
           private
 
-          def new_user(input)
-            email = input[:validation].to_h[:email]
-            Struct.new(:email, :password).new(email, nil)
+          def new_user(validation: {})
+            Struct.new(:email, :password).new(validation[:email], nil)
           end
         end
       end
