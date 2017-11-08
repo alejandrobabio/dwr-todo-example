@@ -12,7 +12,7 @@ module Todo
           r.resolve 'transactions.signup' do |signup|
             signup.(r[:user]) do |m|
               m.success do
-                flash[:notice] = 'Welcome!'
+                flash[:notice] = 'Welcome! Now you have log in credentials.'
                 r.redirect '/'
               end
               m.failure do |validation|
