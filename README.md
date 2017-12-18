@@ -1,18 +1,19 @@
-# Todo
+# dwr-todo-example
 
-Dry-web-roda ToDo example app.
+ToDo example app built with [dry-web-roda](https://github.com/dry-rb/dry-web-roda).
 
 * Build this app [Step-by-step](http://dry-web-roda-todo-app.readthedocs.io/en/latest)
 * See this app working [in heroku](https://dwr-todo-example.herokuapp.com)
 
+## In the step-by-step document you will find:
 
-Welcome! You’ve generated an app using dry-web-roda.
-
-## First steps
-
-1. Run `bundle`
-1. Review `.env` & `.env.test` (and make a copy to e.g. `.example.env` if you want example settings checked in)
-1. Run `bundle exec rake db:create`
-1. Add your own steps to `bin/setup`
-1. Run the app with `bundle exec shotgun -p 3000 -o 0.0.0.0 config.ru`
-1. Initialize git with `git init` and make your initial commit
+* The folder structure of a dry-web-roda app
+* DB migrations, repositories and relations
+* Authentication
+* Authorization
+* The use of the Roda flow plugin to call dry-transactions and its output processing
+* Operations called in each step of the transactions
+* Scoping data for the current user by policies scopes (idea was taken from Pundit)
+* Input validation with dry-validation
+* Showing the current user in layout
+* Transactions for add and complete your tasks
