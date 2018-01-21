@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require_relative '../../../../../apps/main/lib/todo/main/authorization'
+require_relative '../../../../../apps/auth/lib/todo/auth/authorization'
 
 module Todo
-  module Main
+  module Auth
     module Authorizations
       class MyResources
         def call(*)
@@ -14,14 +14,14 @@ module Todo
   end
 end
 
-RSpec.describe Todo::Main::Authorization do
+RSpec.describe Todo::Auth::Authorization do
   it 'returns a call response of Authorization class' do
     user = double('user')
     request = double('request', path: '/my_resources/my_path')
-    my_resources = instance_double('Todo::Main::Authorizations::MyResources')
+    my_resources = instance_double('Todo::Auth::Authorizations::MyResources')
     expect(my_resources).to receive(:call).with(user, request)
       .and_return('whatever')
-    expect(Todo::Main::Authorizations::MyResources).to receive(:new)
+    expect(Todo::Auth::Authorizations::MyResources).to receive(:new)
       .and_return(my_resources)
 
     expect(subject.(user, request)).to eq 'whatever'
