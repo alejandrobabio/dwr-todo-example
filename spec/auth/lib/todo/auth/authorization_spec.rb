@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 require 'spec_helper'
-require_relative '../../../../../apps/auth/lib/todo/auth/authorization'
+require_relative '../../../../../middlewares/auth/lib/todo/auth/authorization'
 
 module Todo
   module Auth
