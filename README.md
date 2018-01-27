@@ -20,6 +20,10 @@ ToDo example app built with [dry-web-roda](https://github.com/dry-rb/dry-web-rod
 * Showing the current user in layout
 * Transactions for add and complete your tasks
 
+## Isolating functionality using middleware
+
+In the branch [middleware-auth](https://github.com/alejandrobabio/dwr-todo-example/tree/middleware-auth) the **Authorization** functionality was moved to a middleware app, that is also a dry-web-roda app. More information in the commit's messages.
+
 ## Similar projects
 
 * [dry-rb/workshop-app](https://github.com/dry-rb/workshop-app)
